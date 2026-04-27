@@ -48,20 +48,21 @@ def existeRepetido(lista, codigo, descripcion, areaSolicitante):
 
 
 def AgregaPuesto(lista):
-   print("\nREGISTRO DE NUEVO PUESTO DE TRABAJO")
+    print("\nREGISTRO DE NUEVO PUESTO DE TRABAJO")
 
-        codigo = validarEntero("Ingrese el código del puesto: ")
-        descripcion = validarTexto("Ingrese la descripción del puesto: ")
-        areaSolicitante = validarTexto("Ingrese el área solicitante: ")
-        plazasRequeridas = validarEntero("Ingrese la cantidad de plazas requeridas: ")
-        sueldo = validarFloat("Ingrese el sueldo del puesto: ")
+    codigo = validarEntero("Ingrese el código del puesto: ")
+    descripcion = validarTexto("Ingrese la descripción del puesto: ")
+    areaSolicitante = validarTexto("Ingrese el área solicitante: ")
+    plazasRequeridas = validarEntero("Ingrese la cantidad de plazas requeridas: ")
+    sueldo = validarFloat("Ingrese el sueldo del puesto: ")
 
     if existeRepetido(lista, codigo, descripcion, areaSolicitante):
-        print("No se puede agregar. Ya existe un puesto con el mismo codigo, descripcion o area solicitante.")
+        print("No se puede registrar el puesto.")
+        print("Ya existe un puesto con el mismo código, descripción o área solicitante.")
     else:
         nuevo = PuestoTrabajo(codigo, descripcion, areaSolicitante, plazasRequeridas, sueldo)
         lista.append(nuevo)
-        print("Puesto agregado correctamente.")
+        print("El puesto de trabajo fue registrado correctamente.")
 
 
 def MostrarTodo(lista):
