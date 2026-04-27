@@ -7,9 +7,9 @@ class PuestoTrabajo:
         self.sueldo = sueldo
 
     def mostrar(self):
-        print("Codigo:", self.codigo)
-        print("Descripcion:", self.descripcion)
-        print("Area solicitante:", self.areaSolicitante)
+        print("Código:", self.codigo)
+        print("Descripción:", self.descripcion)
+        print("Área solicitante:", self.areaSolicitante)
         print("Plazas requeridas:", self.plazasRequeridas)
         print("Sueldo:", self.sueldo)
         print("Total requerido:", self.plazasRequeridas * self.sueldo)
@@ -48,13 +48,13 @@ def existeRepetido(lista, codigo, descripcion, areaSolicitante):
 
 
 def AgregaPuesto(lista):
-    print("\nAgregar puesto de trabajo")
+   print("\nREGISTRO DE NUEVO PUESTO DE TRABAJO")
 
-    codigo = validarEntero("Ingrese codigo: ")
-    descripcion = validarTexto("Ingrese descripcion: ")
-    areaSolicitante = validarTexto("Ingrese area solicitante: ")
-    plazasRequeridas = validarEntero("Ingrese plazas requeridas: ")
-    sueldo = validarFloat("Ingrese sueldo: ")
+        codigo = validarEntero("Ingrese el código del puesto: ")
+        descripcion = validarTexto("Ingrese la descripción del puesto: ")
+        areaSolicitante = validarTexto("Ingrese el área solicitante: ")
+        plazasRequeridas = validarEntero("Ingrese la cantidad de plazas requeridas: ")
+        sueldo = validarFloat("Ingrese el sueldo del puesto: ")
 
     if existeRepetido(lista, codigo, descripcion, areaSolicitante):
         print("No se puede agregar. Ya existe un puesto con el mismo codigo, descripcion o area solicitante.")
@@ -79,21 +79,21 @@ def ordenarBurbujaCodigo(lista):
 
     for i in range(n - 1):
         for j in range(n - 1 - i):
-            if lista[j].codigo > lista[j + 1].codigo:
+            if lista[j].codigo < lista[j + 1].codigo:
                 aux = lista[j]
                 lista[j] = lista[j + 1]
                 lista[j + 1] = aux
 
 
 def BorraPuesto(lista):
-    print("\nBorrar puesto de trabajo")
+    print("\nBORRAR PUESTO DE TRABAJO")
 
     if len(lista) == 0:
         print("No hay puestos para borrar.")
     else:
         ordenarBurbujaCodigo(lista)
 
-        codigoBuscar = int(input("Ingrese el codigo a borrar: "))
+        codigoBuscar = int(input("Ingrese el código del puesto que desea borrar: "))
         encontrado = False
 
         i = 0
@@ -147,7 +147,7 @@ def BuscaSueldo(lista):
     else:
         ordenarInsercionSueldo(lista)
 
-        sueldoBuscar = float(input("Ingrese el sueldo a buscar: "))
+        sueldoBuscar = float(input("Ingrese el sueldo que desea buscar: "))
         posicion = busquedaBinariaSueldo(lista, sueldoBuscar)
 
         if posicion == -1:
@@ -192,7 +192,7 @@ def PuestosAContratar(lista):
     if len(lista) == 0:
         print("No hay puestos registrados.")
     else:
-        monto = validarFloat("Ingrese el monto total a invertir en salarios: ")
+        monto = validarFloat("Ingrese el monto total disponible para invertir en salarios: ")
 
         ordenarSeleccionTotal(lista)
 
@@ -221,15 +221,15 @@ def menu():
     opcion = 0
 
     while opcion != 6:
-        print("\nMENU")
-        print("1 - AgregaPuesto")
-        print("2 - MostrarTodo")
-        print("3 - BorraPuesto")
-        print("4 - BuscaSueldo")
-        print("5 - PuestosAContratar")
-        print("6 - Salir")
+        print("\nMENÚ PRINCIPAL")
+        print("1 - Agregar puesto de trabajo")
+        print("2 - Mostrar todos los puestos de trabajo")
+        print("3 - Borrar un puesto de trabajo")
+        print("4 - Buscar puestos por sueldo")
+        print("5 - Calcular puestos a contratar")
+        print("6 - Salir del programa")
 
-        opcion = int(input("Ingrese una opcion: "))
+        opcion = int(input("Seleccione una opción: "))
 
         if opcion == 1:
             AgregaPuesto(puestos)
